@@ -451,38 +451,98 @@ body.visitor .rc-hint,body.visitor .mc-act{display:none}
 <canvas id="bg-canvas"></canvas>
 
 <script>
-const GROUPS=[{letter:'A',teams:[{name:'Mexico',flag:'🇲🇽',rank:16,host:true},{name:'South Korea',flag:'🇰🇷',rank:22},{name:'South Africa',flag:'🇿🇦',rank:57},{name:'Denmark',flag:'🇩🇰',rank:20}]},{letter:'B',teams:[{name:'Canada',flag:'🇨🇦',rank:47,host:true},{name:'Switzerland',flag:'🇨🇭',rank:19},{name:'Qatar',flag:'🇶🇦',rank:38},{name:'Italy',flag:'🇮🇹',rank:9}]},{letter:'C',teams:[{name:'Brazil',flag:'🇧🇷',rank:5},{name:'Morocco',flag:'🇲🇦',rank:14},{name:'Scotland',flag:'🏴󠁧󠁢󠁳󠁣󠁴󠁿',rank:39},{name:'Haiti',flag:'🇭🇹',rank:95}]},{letter:'D',teams:[{name:'USA',flag:'🇺🇸',rank:13,host:true},{name:'Australia',flag:'🇦🇺',rank:25},{name:'Paraguay',flag:'🇵🇾',rank:55},{name:'Türkiye',flag:'🇹🇷',rank:30}]},{letter:'E',teams:[{name:'Germany',flag:'🇩🇪',rank:16},{name:'Ecuador',flag:'🇪🇨',rank:44},{name:'Ivory Coast',flag:'🇨🇮',rank:35},{name:'Curaçao',flag:'🇨🇼',rank:85}]},{letter:'F',teams:[{name:'Netherlands',flag:'🇳🇱',rank:8},{name:'Japan',flag:'🇯🇵',rank:17},{name:'Tunisia',flag:'🇹🇳',rank:36},{name:'Ukraine',flag:'🇺🇦',rank:24}]},{letter:'G',teams:[{name:'Belgium',flag:'🇧🇪',rank:3},{name:'Iran',flag:'🇮🇷',rank:23},{name:'Egypt',flag:'🇪🇬',rank:34},{name:'New Zealand',flag:'🇳🇿',rank:102}]},{letter:'H',teams:[{name:'Spain',flag:'🇪🇸',rank:1},{name:'Colombia',flag:'🇨🇴',rank:11},{name:'Serbia',flag:'🇷🇸',rank:28},{name:'Jordan',flag:'🇯🇴',rank:67}]},{letter:'I',teams:[{name:'Argentina',flag:'🇦🇷',rank:2},{name:'Algeria',flag:'🇩🇿',rank:29},{name:'Chile',flag:'🇨🇱',rank:33},{name:'Uzbekistan',flag:'🇺🇿',rank:61}]},{letter:'J',teams:[{name:'France',flag:'🇫🇷',rank:4},{name:'Portugal',flag:'🇵🇹',rank:6},{name:'Nigeria',flag:'🇳🇬',rank:32},{name:'Cape Verde',flag:'🇨🇻',rank:79}]},{letter:'K',teams:[{name:'England',flag:'🏴󠁧󠁢󠁥󠁮󠁧󠁿',rank:5},{name:'Senegal',flag:'🇸🇳',rank:18},{name:'Venezuela',flag:'🇻🇪',rank:47},{name:'Cameroon',flag:'🇨🇲',rank:43}]},{letter:'L',teams:[{name:'Croatia',flag:'🇭🇷',rank:10},{name:'Uruguay',flag:'🇺🇾',rank:12},{name:'Ghana',flag:'🇬🇭',rank:56},{name:'Panama',flag:'🇵🇦',rank:72}]}];
+const GROUPS=[{letter:'A',teams:[{name:'Mexico',flag:'🇲🇽',rank:16,host:true},{name:'South Korea',flag:'🇰🇷',rank:22},{name:'South Africa',flag:'🇿🇦',rank:57},{name:'Czechia',flag:'🇨🇿',rank:20}]},{letter:'B',teams:[{name:'Canada',flag:'🇨🇦',rank:47,host:true},{name:'Switzerland',flag:'🇨🇭',rank:19},{name:'Bosnia',flag:'🇧🇦',rank:61},{name:'Italy',flag:'🇮🇹',rank:9}]},{letter:'C',teams:[{name:'Brazil',flag:'🇧🇷',rank:5},{name:'Morocco',flag:'🇲🇦',rank:14},{name:'Scotland',flag:'🏴󠁧󠁢󠁳󠁣󠁴󠁿',rank:39},{name:'Haiti',flag:'🇭🇹',rank:95}]},{letter:'D',teams:[{name:'USA',flag:'🇺🇸',rank:13,host:true},{name:'Australia',flag:'🇦🇺',rank:25},{name:'Paraguay',flag:'🇵🇾',rank:55},{name:'Türkiye',flag:'🇹🇷',rank:30}]},{letter:'E',teams:[{name:'Germany',flag:'🇩🇪',rank:16},{name:'Ecuador',flag:'🇪🇨',rank:44},{name:'Ivory Coast',flag:'🇨🇮',rank:35},{name:'Curaçao',flag:'🇨🇼',rank:85}]},{letter:'F',teams:[{name:'Netherlands',flag:'🇳🇱',rank:8},{name:'Japan',flag:'🇯🇵',rank:17},{name:'Tunisia',flag:'🇹🇳',rank:36},{name:'Ukraine',flag:'🇺🇦',rank:24}]},{letter:'G',teams:[{name:'Belgium',flag:'🇧🇪',rank:3},{name:'Iran',flag:'🇮🇷',rank:23},{name:'Egypt',flag:'🇪🇬',rank:34},{name:'New Zealand',flag:'🇳🇿',rank:102}]},{letter:'H',teams:[{name:'Spain',flag:'🇪🇸',rank:1},{name:'Colombia',flag:'🇨🇴',rank:11},{name:'Serbia',flag:'🇷🇸',rank:28},{name:'Jordan',flag:'🇯🇴',rank:67}]},{letter:'I',teams:[{name:'Argentina',flag:'🇦🇷',rank:2},{name:'Algeria',flag:'🇩🇿',rank:29},{name:'Chile',flag:'🇨🇱',rank:33},{name:'Uzbekistan',flag:'🇺🇿',rank:61}]},{letter:'J',teams:[{name:'France',flag:'🇫🇷',rank:4},{name:'Portugal',flag:'🇵🇹',rank:6},{name:'Nigeria',flag:'🇳🇬',rank:32},{name:'Cape Verde',flag:'🇨🇻',rank:79}]},{letter:'K',teams:[{name:'England',flag:'🏴󠁧󠁢󠁥󠁮󠁧󠁿',rank:5},{name:'Senegal',flag:'🇸🇳',rank:18},{name:'Venezuela',flag:'🇻🇪',rank:47},{name:'Cameroon',flag:'🇨🇲',rank:43}]},{letter:'L',teams:[{name:'Croatia',flag:'🇭🇷',rank:10},{name:'Uruguay',flag:'🇺🇾',rank:12},{name:'Ghana',flag:'🇬🇭',rank:56},{name:'Panama',flag:'🇵🇦',rank:72}]}];
 
 const GM=[
+// Jun 11
 {id:'g01',date:'Jun 11',home:'Mexico',hf:'🇲🇽',hr:16,away:'South Africa',af:'🇿🇦',ar:57,venue:'Mexico City',g:'A',pa:2,pb:0},
-{id:'g02',date:'Jun 11',home:'South Korea',hf:'🇰🇷',hr:22,away:'Denmark',af:'🇩🇰',ar:20,venue:'Guadalajara',g:'A',pa:1,pb:1},
-{id:'g03',date:'Jun 12',home:'USA',hf:'🇺🇸',hr:13,away:'Paraguay',af:'🇵🇾',ar:55,venue:'Los Angeles',g:'D',pa:2,pb:0},
-{id:'g04',date:'Jun 12',home:'Australia',hf:'🇦🇺',hr:25,away:'Türkiye',af:'🇹🇷',ar:30,venue:'Seattle',g:'D',pa:1,pb:2},
-{id:'g05',date:'Jun 13',home:'Brazil',hf:'🇧🇷',hr:5,away:'Haiti',af:'🇭🇹',ar:95,venue:'Dallas',g:'C',pa:5,pb:0},
-{id:'g06',date:'Jun 13',home:'Morocco',hf:'🇲🇦',hr:14,away:'Scotland',af:'🏴󠁧󠁢󠁳󠁣󠁴󠁿',ar:39,venue:'Atlanta',g:'C',pa:2,pb:1},
-{id:'g07',date:'Jun 14',home:'Germany',hf:'🇩🇪',hr:16,away:'Curaçao',af:'🇨🇼',ar:85,venue:'Houston',g:'E',pa:4,pb:0},
-{id:'g08',date:'Jun 14',home:'Netherlands',hf:'🇳🇱',hr:8,away:'Japan',af:'🇯🇵',ar:17,venue:'Arlington',g:'F',pa:2,pb:1},
-{id:'g09',date:'Jun 14',home:'Belgium',hf:'🇧🇪',hr:3,away:'Egypt',af:'🇪🇬',ar:34,venue:'Miami',g:'G',pa:3,pb:0},
-{id:'g10',date:'Jun 15',home:'Spain',hf:'🇪🇸',hr:1,away:'Jordan',af:'🇯🇴',ar:67,venue:'Kansas City',g:'H',pa:4,pb:0},
-{id:'g11',date:'Jun 15',home:'Canada',hf:'🇨🇦',hr:47,away:'Qatar',af:'🇶🇦',ar:38,venue:'Toronto',g:'B',pa:1,pb:1},
-{id:'g12',date:'Jun 15',home:'Switzerland',hf:'🇨🇭',hr:19,away:'Italy',af:'🇮🇹',ar:9,venue:'Vancouver',g:'B',pa:1,pb:2},
-{id:'g13',date:'Jun 16',home:'Argentina',hf:'🇦🇷',hr:2,away:'Algeria',af:'🇩🇿',ar:29,venue:'New York',g:'I',pa:3,pb:0},
-{id:'g14',date:'Jun 16',home:'Chile',hf:'🇨🇱',hr:33,away:'Uzbekistan',af:'🇺🇿',ar:61,venue:'Boston',g:'I',pa:2,pb:1},
-{id:'g15',date:'Jun 16',home:'France',hf:'🇫🇷',hr:4,away:'Cape Verde',af:'🇨🇻',ar:79,venue:'San Francisco',g:'J',pa:4,pb:0},
-{id:'g16',date:'Jun 17',home:'Portugal',hf:'🇵🇹',hr:6,away:'Nigeria',af:'🇳🇬',ar:32,venue:'Philadelphia',g:'J',pa:3,pb:1},
-{id:'g17',date:'Jun 17',home:'England',hf:'🏴󠁧󠁢󠁥󠁮󠁧󠁿',hr:5,away:'Cameroon',af:'🇨🇲',ar:43,venue:'New York',g:'K',pa:3,pb:0},
-{id:'g18',date:'Jun 17',home:'Senegal',hf:'🇸🇳',hr:18,away:'Venezuela',af:'🇻🇪',ar:47,venue:'Dallas',g:'K',pa:2,pb:1},
-{id:'g19',date:'Jun 18',home:'Croatia',hf:'🇭🇷',hr:10,away:'Panama',af:'🇵🇦',ar:72,venue:'Los Angeles',g:'L',pa:3,pb:0},
-{id:'g20',date:'Jun 18',home:'Uruguay',hf:'🇺🇾',hr:12,away:'Ghana',af:'🇬🇭',ar:56,venue:'Houston',g:'L',pa:2,pb:1},
-{id:'g21',date:'Jun 19',home:'Iran',hf:'🇮🇷',hr:23,away:'New Zealand',af:'🇳🇿',ar:102,venue:'Seattle',g:'G',pa:2,pb:0},
-{id:'g22',date:'Jun 20',home:'Colombia',hf:'🇨🇴',hr:11,away:'Serbia',af:'🇷🇸',ar:28,venue:'Miami',g:'H',pa:2,pb:1},
-{id:'g23',date:'Jun 21',home:'Mexico',hf:'🇲🇽',hr:16,away:'South Korea',af:'🇰🇷',ar:22,venue:'Guadalajara',g:'A',pa:1,pb:2},
-{id:'g24',date:'Jun 22',home:'USA',hf:'🇺🇸',hr:13,away:'Australia',af:'🇦🇺',ar:25,venue:'Kansas City',g:'D',pa:2,pb:1},
-{id:'g25',date:'Jun 23',home:'Brazil',hf:'🇧🇷',hr:5,away:'Morocco',af:'🇲🇦',ar:14,venue:'Atlanta',g:'C',pa:2,pb:1},
-{id:'g26',date:'Jun 24',home:'Argentina',hf:'🇦🇷',hr:2,away:'Chile',af:'🇨🇱',ar:33,venue:'Los Angeles',g:'I',pa:3,pb:1},
-{id:'g27',date:'Jun 25',home:'France',hf:'🇫🇷',hr:4,away:'Portugal',af:'🇵🇹',ar:6,venue:'New York',g:'J',pa:2,pb:1},
-{id:'g28',date:'Jun 26',home:'England',hf:'🏴󠁧󠁢󠁥󠁮󠁧󠁿',hr:5,away:'Senegal',af:'🇸🇳',ar:18,venue:'Dallas',g:'K',pa:2,pb:1},
-{id:'g29',date:'Jun 27',home:'Croatia',hf:'🇭🇷',hr:10,away:'Uruguay',af:'🇺🇾',ar:12,venue:'Miami',g:'L',pa:1,pb:2}
+{id:'g02',date:'Jun 11',home:'South Korea',hf:'🇰🇷',hr:22,away:'Czechia',af:'🇨🇿',ar:20,venue:'Guadalajara',g:'A',pa:2,pb:1},
+// Jun 12
+{id:'g03',date:'Jun 12',home:'Canada',hf:'🇨🇦',hr:47,away:'Bosnia',af:'🇧🇦',ar:61,venue:'Toronto',g:'B',pa:1,pb:1},
+{id:'g04',date:'Jun 12',home:'USA',hf:'🇺🇸',hr:13,away:'Paraguay',af:'🇵🇾',ar:55,venue:'Los Angeles',g:'D',pa:2,pb:0},
+// Jun 13
+{id:'g05',date:'Jun 13',home:'Qatar',hf:'🇶🇦',hr:38,away:'Switzerland',af:'🇨🇭',ar:19,venue:'San Francisco',g:'B',pa:1,pb:1},
+{id:'g06',date:'Jun 13',home:'Brazil',hf:'🇧🇷',hr:5,away:'Morocco',af:'🇲🇦',ar:14,venue:'New York',g:'C',pa:2,pb:1},
+{id:'g07',date:'Jun 13',home:'Haiti',hf:'🇭🇹',hr:95,away:'Scotland',af:'🏴󠁧󠁢󠁳󠁣󠁴󠁿',ar:39,venue:'Boston',g:'C',pa:0,pb:1},
+{id:'g08',date:'Jun 14',home:'Australia',hf:'🇦🇺',hr:25,away:'Turkey',af:'🇹🇷',ar:30,venue:'Vancouver',g:'D',pa:1,pb:2},
+// Jun 14
+{id:'g09',date:'Jun 14',home:'Germany',hf:'🇩🇪',hr:16,away:'Curacao',af:'🇨🇼',ar:85,venue:'Houston',g:'E',pa:4,pb:0},
+{id:'g10',date:'Jun 14',home:'Netherlands',hf:'🇳🇱',hr:8,away:'Japan',af:'🇯🇵',ar:17,venue:'Arlington',g:'F',pa:2,pb:1},
+{id:'g11',date:'Jun 14',home:'Ivory Coast',hf:'🇨🇮',hr:35,away:'Ecuador',af:'🇪🇨',ar:44,venue:'Miami',g:'E',pa:1,pb:2},
+{id:'g12',date:'Jun 14',home:'Sweden',hf:'🇸🇪',hr:32,away:'Tunisia',af:'🇹🇳',ar:36,venue:'Dallas',g:'F',pa:1,pb:0},
+// Jun 15
+{id:'g13',date:'Jun 15',home:'Spain',hf:'🇪🇸',hr:1,away:'Cabo Verde',af:'🇨🇻',ar:79,venue:'Atlanta',g:'H',pa:3,pb:0},
+{id:'g14',date:'Jun 15',home:'Belgium',hf:'🇧🇪',hr:3,away:'Egypt',af:'🇪🇬',ar:34,venue:'Miami',g:'G',pa:3,pb:0},
+{id:'g15',date:'Jun 15',home:'Saudi Arabia',hf:'🇸🇦',hr:51,away:'Uruguay',af:'🇺🇾',ar:12,venue:'Dallas',g:'H',pa:0,pb:2},
+{id:'g16',date:'Jun 15',home:'Iran',hf:'🇮🇷',hr:23,away:'New Zealand',af:'🇳🇿',ar:102,venue:'Seattle',g:'G',pa:2,pb:0},
+// Jun 16
+{id:'g17',date:'Jun 16',home:'France',hf:'🇫🇷',hr:4,away:'Senegal',af:'🇸🇳',ar:18,venue:'Boston',g:'I',pa:2,pb:0},
+{id:'g18',date:'Jun 16',home:'Iraq',hf:'🇮🇶',hr:79,away:'Norway',af:'🇳🇴',ar:22,venue:'Houston',g:'I',pa:0,pb:1},
+{id:'g19',date:'Jun 16',home:'Argentina',hf:'🇦🇷',hr:2,away:'Algeria',af:'🇩🇿',ar:29,venue:'New York',g:'I',pa:3,pb:0},
+{id:'g20',date:'Jun 17',home:'Austria',hf:'🇦🇹',hr:31,away:'Jordan',af:'🇯🇴',ar:67,venue:'Arlington',g:'J',pa:0,pb:1},
+// Jun 17
+{id:'g21',date:'Jun 17',home:'Portugal',hf:'🇵🇹',hr:6,away:'DR Congo',af:'🇨🇩',ar:59,venue:'Boston',g:'J',pa:3,pb:0},
+{id:'g22',date:'Jun 17',home:'England',hf:'🏴󠁧󠁢󠁥󠁮󠁧󠁿',hr:5,away:'Croatia',af:'🇭🇷',ar:10,venue:'Arlington',g:'L',pa:2,pb:0},
+{id:'g23',date:'Jun 17',home:'Ghana',hf:'🇬🇭',hr:56,away:'Panama',af:'🇵🇦',ar:72,venue:'New York',g:'L',pa:2,pb:0},
+{id:'g24',date:'Jun 17',home:'Colombia',hf:'🇨🇴',hr:11,away:'Uzbekistan',af:'🇺🇿',ar:61,venue:'Miami',g:'J',pa:2,pb:1},
+// Jun 18
+{id:'g25',date:'Jun 18',home:'Czechia',hf:'🇨🇿',hr:20,away:'South Africa',af:'🇿🇦',ar:57,venue:'Dallas',g:'A',pa:2,pb:0},
+{id:'g26',date:'Jun 18',home:'Switzerland',hf:'🇨🇭',hr:19,away:'Bosnia',af:'🇧🇦',ar:61,venue:'Vancouver',g:'B',pa:2,pb:1},
+{id:'g27',date:'Jun 18',home:'Canada',hf:'🇨🇦',hr:47,away:'Qatar',af:'🇶🇦',ar:38,venue:'Toronto',g:'B',pa:1,pb:1},
+{id:'g28',date:'Jun 18',home:'Mexico',hf:'🇲🇽',hr:16,away:'South Korea',af:'🇰🇷',ar:22,venue:'Guadalajara',g:'A',pa:1,pb:2},
+// Jun 19
+{id:'g29',date:'Jun 19',home:'USA',hf:'🇺🇸',hr:13,away:'Australia',af:'🇦🇺',ar:25,venue:'Los Angeles',g:'D',pa:2,pb:1},
+{id:'g30',date:'Jun 19',home:'Scotland',hf:'🏴󠁧󠁢󠁳󠁣󠁴󠁿',hr:39,away:'Morocco',af:'🇲🇦',ar:14,venue:'Glasgow',g:'C',pa:0,pb:1},
+{id:'g31',date:'Jun 19',home:'Brazil',hf:'🇧🇷',hr:5,away:'Haiti',af:'🇭🇹',ar:95,venue:'Atlanta',g:'C',pa:4,pb:0},
+{id:'g32',date:'Jun 19',home:'Turkey',hf:'🇹🇷',hr:30,away:'Paraguay',af:'🇵🇾',ar:55,venue:'Phoenix',g:'D',pa:1,pb:0},
+// Jun 20
+{id:'g33',date:'Jun 20',home:'Netherlands',hf:'🇳🇱',hr:8,away:'Sweden',af:'🇸🇪',ar:32,venue:'Arlington',g:'F',pa:2,pb:1},
+{id:'g34',date:'Jun 20',home:'Germany',hf:'🇩🇪',hr:16,away:'Ivory Coast',af:'🇨🇮',ar:35,venue:'Houston',g:'E',pa:3,pb:1},
+{id:'g35',date:'Jun 20',home:'Ecuador',hf:'🇪🇨',hr:44,away:'Curacao',af:'🇨🇼',ar:85,venue:'Dallas',g:'E',pa:2,pb:0},
+{id:'g36',date:'Jun 20',home:'Tunisia',hf:'🇹🇳',hr:36,away:'Japan',af:'🇯🇵',ar:17,venue:'Seattle',g:'F',pa:0,pb:2},
+// Jun 21
+{id:'g37',date:'Jun 21',home:'Spain',hf:'🇪🇸',hr:1,away:'Saudi Arabia',af:'🇸🇦',ar:51,venue:'Miami',g:'H',pa:3,pb:0},
+{id:'g38',date:'Jun 21',home:'Belgium',hf:'🇧🇪',hr:3,away:'Iran',af:'🇮🇷',ar:23,venue:'Arlington',g:'G',pa:2,pb:0},
+{id:'g39',date:'Jun 21',home:'Uruguay',hf:'🇺🇾',hr:12,away:'Cabo Verde',af:'🇨🇻',ar:79,venue:'Boston',g:'H',pa:2,pb:0},
+{id:'g40',date:'Jun 21',home:'New Zealand',hf:'🇳🇿',hr:102,away:'Egypt',af:'🇪🇬',ar:34,venue:'Seattle',g:'G',pa:1,pb:0},
+// Jun 22
+{id:'g41',date:'Jun 22',home:'Argentina',hf:'🇦🇷',hr:2,away:'Austria',af:'🇦🇹',ar:31,venue:'New York',g:'I',pa:2,pb:0},
+{id:'g42',date:'Jun 22',home:'France',hf:'🇫🇷',hr:4,away:'Iraq',af:'🇮🇶',ar:79,venue:'Boston',g:'I',pa:3,pb:0},
+{id:'g43',date:'Jun 22',home:'Norway',hf:'🇳🇴',hr:22,away:'Senegal',af:'🇸🇳',ar:18,venue:'Dallas',g:'I',pa:0,pb:1},
+{id:'g44',date:'Jun 22',home:'Jordan',hf:'🇯🇴',hr:67,away:'Algeria',af:'🇩🇿',ar:29,venue:'Houston',g:'J',pa:1,pb:1},
+// Jun 23
+{id:'g45',date:'Jun 23',home:'Portugal',hf:'🇵🇹',hr:6,away:'Uzbekistan',af:'🇺🇿',ar:61,venue:'Arlington',g:'J',pa:2,pb:0},
+{id:'g46',date:'Jun 23',home:'England',hf:'🏴󠁧󠁢󠁥󠁮󠁧󠁿',hr:5,away:'Ghana',af:'🇬🇭',ar:56,venue:'Miami',g:'L',pa:3,pb:0},
+{id:'g47',date:'Jun 23',home:'Panama',hf:'🇵🇦',hr:72,away:'Croatia',af:'🇭🇷',ar:10,venue:'New York',g:'L',pa:1,pb:2},
+{id:'g48',date:'Jun 23',home:'Colombia',hf:'🇨🇴',hr:11,away:'DR Congo',af:'🇨🇩',ar:59,venue:'Dallas',g:'J',pa:2,pb:1},
+// Jun 24
+{id:'g49',date:'Jun 24',home:'Switzerland',hf:'🇨🇭',hr:19,away:'Canada',af:'🇨🇦',ar:47,venue:'Vancouver',g:'B',pa:1,pb:0},
+{id:'g50',date:'Jun 24',home:'Bosnia',hf:'🇧🇦',hr:61,away:'Qatar',af:'🇶🇦',ar:38,venue:'Toronto',g:'B',pa:1,pb:1},
+{id:'g51',date:'Jun 24',home:'Scotland',hf:'🏴󠁧󠁢󠁳󠁣󠁴󠁿',hr:39,away:'Brazil',af:'🇧🇷',ar:5,venue:'Glasgow',g:'C',pa:0,pb:2},
+{id:'g52',date:'Jun 24',home:'Morocco',hf:'🇲🇦',hr:14,away:'Haiti',af:'🇭🇹',ar:95,venue:'Atlanta',g:'C',pa:3,pb:0},
+{id:'g53',date:'Jun 24',home:'Czechia',hf:'🇨🇿',hr:20,away:'Mexico',af:'🇲🇽',ar:16,venue:'Guadalajara',g:'A',pa:1,pb:0},
+{id:'g54',date:'Jun 24',home:'South Africa',hf:'🇿🇦',hr:57,away:'South Korea',af:'🇰🇷',ar:22,venue:'Dallas',g:'A',pa:0,pb:1},
+// Jun 25
+{id:'g55',date:'Jun 25',home:'Ecuador',hf:'🇪🇨',hr:44,away:'Germany',af:'🇩🇪',ar:16,venue:'Houston',g:'E',pa:1,pb:1},
+{id:'g56',date:'Jun 25',home:'Curacao',hf:'🇨🇼',hr:85,away:'Ivory Coast',af:'🇨🇮',ar:35,venue:'Miami',g:'E',pa:0,pb:2},
+{id:'g57',date:'Jun 25',home:'Japan',hf:'🇯🇵',hr:17,away:'Sweden',af:'🇸🇪',ar:32,venue:'Seattle',g:'F',pa:1,pb:2},
+{id:'g58',date:'Jun 25',home:'Tunisia',hf:'🇹🇳',hr:36,away:'Netherlands',af:'🇳🇱',ar:8,venue:'Arlington',g:'F',pa:0,pb:1},
+{id:'g59',date:'Jun 25',home:'Turkey',hf:'🇹🇷',hr:30,away:'USA',af:'🇺🇸',ar:13,venue:'Dallas',g:'D',pa:1,pb:2},
+{id:'g60',date:'Jun 25',home:'Paraguay',hf:'🇵🇾',hr:55,away:'Australia',af:'🇦🇺',ar:25,venue:'Phoenix',g:'D',pa:0,pb:1},
+// Jun 26
+{id:'g61',date:'Jun 26',home:'Norway',hf:'🇳🇴',hr:22,away:'France',af:'🇫🇷',ar:4,venue:'Boston',g:'I',pa:1,pb:2},
+{id:'g62',date:'Jun 26',home:'Senegal',hf:'🇸🇳',hr:18,away:'Iraq',af:'🇮🇶',ar:79,venue:'Houston',g:'I',pa:2,pb:0},
+{id:'g63',date:'Jun 26',home:'Cabo Verde',hf:'🇨🇻',hr:79,away:'Saudi Arabia',af:'🇸🇦',ar:51,venue:'Phoenix',g:'H',pa:0,pb:1},
+{id:'g64',date:'Jun 26',home:'Uruguay',hf:'🇺🇾',hr:12,away:'Spain',af:'🇪🇸',ar:1,venue:'Miami',g:'H',pa:1,pb:2},
+{id:'g65',date:'Jun 26',home:'Egypt',hf:'🇪🇬',hr:34,away:'Iran',af:'🇮🇷',ar:23,venue:'Arlington',g:'G',pa:0,pb:1},
+{id:'g66',date:'Jun 26',home:'New Zealand',hf:'🇳🇿',hr:102,away:'Belgium',af:'🇧🇪',ar:3,venue:'Seattle',g:'G',pa:0,pb:2},
+// Jun 27
+{id:'g67',date:'Jun 27',home:'Panama',hf:'🇵🇦',hr:72,away:'England',af:'🏴󠁧󠁢󠁥󠁮󠁧󠁿',ar:5,venue:'Miami',g:'L',pa:0,pb:3},
+{id:'g68',date:'Jun 27',home:'Croatia',hf:'🇭🇷',hr:10,away:'Ghana',af:'🇬🇭',ar:56,venue:'Philadelphia',g:'L',pa:2,pb:1},
+{id:'g69',date:'Jun 27',home:'Colombia',hf:'🇨🇴',hr:11,away:'Portugal',af:'🇵🇹',ar:6,venue:'Boston',g:'J',pa:1,pb:2},
+{id:'g70',date:'Jun 27',home:'DR Congo',hf:'🇨🇩',hr:59,away:'Uzbekistan',af:'🇺🇿',ar:61,venue:'Atlanta',g:'J',pa:1,pb:0},
+{id:'g71',date:'Jun 27',home:'Algeria',hf:'🇩🇿',hr:29,away:'Austria',af:'🇦🇹',ar:31,venue:'New York',g:'I',pa:1,pb:0},
+{id:'g72',date:'Jun 27',home:'Jordan',hf:'🇯🇴',hr:67,away:'Argentina',af:'🇦🇷',ar:2,venue:'Dallas',g:'I',pa:0,pb:2}
 ];
 
 const KO={
@@ -570,7 +630,11 @@ const VENUES_DATA=[
 //  generated block right here.
 // ════════════════════════════════════════════════════════════
 const OFFICIAL_RESULTS = {
-
+  'g01': {a:2, b:0},
+  'g02': {a:2, b:1},
+  'g03': {a:1, b:1},
+  'g04': {a:4, b:1},
+  
 };
 
 // Admin mode: only active when the URL contains ?admin
