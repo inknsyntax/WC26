@@ -451,7 +451,7 @@ body.visitor .rc-hint,body.visitor .mc-act{display:none}
 <canvas id="bg-canvas"></canvas>
 
 <script>
-const GROUPS=[{letter:'A',teams:[{name:'Mexico',flag:'🇲🇽',rank:16,host:true},{name:'South Korea',flag:'🇰🇷',rank:22},{name:'South Africa',flag:'🇿🇦',rank:57},{name:'Czechia',flag:'🇨🇿',rank:20}]},{letter:'B',teams:[{name:'Canada',flag:'🇨🇦',rank:47,host:true},{name:'Switzerland',flag:'🇨🇭',rank:19},{name:'Bosnia',flag:'🇧🇦',rank:61},{name:'Italy',flag:'🇮🇹',rank:9}]},{letter:'C',teams:[{name:'Brazil',flag:'🇧🇷',rank:5},{name:'Morocco',flag:'🇲🇦',rank:14},{name:'Scotland',flag:'🏴󠁧󠁢󠁳󠁣󠁴󠁿',rank:39},{name:'Haiti',flag:'🇭🇹',rank:95}]},{letter:'D',teams:[{name:'USA',flag:'🇺🇸',rank:13,host:true},{name:'Australia',flag:'🇦🇺',rank:25},{name:'Paraguay',flag:'🇵🇾',rank:55},{name:'Türkiye',flag:'🇹🇷',rank:30}]},{letter:'E',teams:[{name:'Germany',flag:'🇩🇪',rank:16},{name:'Ecuador',flag:'🇪🇨',rank:44},{name:'Ivory Coast',flag:'🇨🇮',rank:35},{name:'Curaçao',flag:'🇨🇼',rank:85}]},{letter:'F',teams:[{name:'Netherlands',flag:'🇳🇱',rank:8},{name:'Japan',flag:'🇯🇵',rank:17},{name:'Tunisia',flag:'🇹🇳',rank:36},{name:'Ukraine',flag:'🇺🇦',rank:24}]},{letter:'G',teams:[{name:'Belgium',flag:'🇧🇪',rank:3},{name:'Iran',flag:'🇮🇷',rank:23},{name:'Egypt',flag:'🇪🇬',rank:34},{name:'New Zealand',flag:'🇳🇿',rank:102}]},{letter:'H',teams:[{name:'Spain',flag:'🇪🇸',rank:1},{name:'Colombia',flag:'🇨🇴',rank:11},{name:'Serbia',flag:'🇷🇸',rank:28},{name:'Jordan',flag:'🇯🇴',rank:67}]},{letter:'I',teams:[{name:'Argentina',flag:'🇦🇷',rank:2},{name:'Algeria',flag:'🇩🇿',rank:29},{name:'Chile',flag:'🇨🇱',rank:33},{name:'Uzbekistan',flag:'🇺🇿',rank:61}]},{letter:'J',teams:[{name:'France',flag:'🇫🇷',rank:4},{name:'Portugal',flag:'🇵🇹',rank:6},{name:'Nigeria',flag:'🇳🇬',rank:32},{name:'Cape Verde',flag:'🇨🇻',rank:79}]},{letter:'K',teams:[{name:'England',flag:'🏴󠁧󠁢󠁥󠁮󠁧󠁿',rank:5},{name:'Senegal',flag:'🇸🇳',rank:18},{name:'Venezuela',flag:'🇻🇪',rank:47},{name:'Cameroon',flag:'🇨🇲',rank:43}]},{letter:'L',teams:[{name:'Croatia',flag:'🇭🇷',rank:10},{name:'Uruguay',flag:'🇺🇾',rank:12},{name:'Ghana',flag:'🇬🇭',rank:56},{name:'Panama',flag:'🇵🇦',rank:72}]}];
+const GROUPS=[{letter:'A',teams:[{name:'Mexico',flag:'🇲🇽',rank:16,host:true},{name:'South Korea',flag:'🇰🇷',rank:22},{name:'South Africa',flag:'🇿🇦',rank:57},{name:'Czechia',flag:'🇨🇿',rank:20}]},{letter:'B',teams:[{name:'Canada',flag:'🇨🇦',rank:47,host:true},{name:'Switzerland',flag:'🇨🇭',rank:19},{name:'Bosnia',flag:'🇧🇦',rank:61},{name:'Italy',flag:'🇮🇹',rank:9}]},{letter:'C',teams:[{name:'Brazil',flag:'🇧🇷',rank:5},{name:'Morocco',flag:'🇲🇦',rank:14},{name:'Scotland',flag:'🏴󠁧󠁢󠁳󠁣󠁴󠁿',rank:39},{name:'Haiti',flag:'🇭🇹',rank:95}]},{letter:'D',teams:[{name:'USA',flag:'🇺🇸',rank:13,host:true},{name:'Australia',flag:'🇦🇺',rank:25},{name:'Paraguay',flag:'🇵🇾',rank:55},{name:'Türkiye',flag:'🇹🇷',rank:30}]},{letter:'E',teams:[{name:'Germany',flag:'🇩🇪',rank:16},{name:'Ecuador',flag:'🇪🇨',rank:44},{name:'Ivory Coast',flag:'🇨🇮',rank:35},{name:'Curaçao',flag:'🇨🇼',rank:85}]},{letter:'F',teams:[{name:'Netherlands',flag:'🇳🇱',rank:8},{name:'Japan',flag:'🇯🇵',rank:17},{name:'Tunisia',flag:'🇹🇳',rank:36},{name:'Ukraine',flag:'🇺🇦',rank:24}]},{letter:'G',teams:[{name:'Belgium',flag:'🇧🇪',rank:3},{name:'Iran',flag:'🇮🇷',rank:23},{name:'Egypt',flag:'🇪🇬',rank:34},{name:'New Zealand',flag:'🇳🇿',rank:102}]},{letter:'H',teams:[{name:'Spain',flag:'🇪🇸',rank:1},{name:'Colombia',flag:'🇨🇴',rank:11},{name:'Serbia',flag:'🇷🇸',rank:28},{name:'Jordan',flag:'🇯🇴',rank:67}]},{letter:'I',teams:[{name:'Argentina',flag:'🇦🇷',rank:2},{name:'Algeria',flag:'🇩🇿',rank:29},{name:'Chile',flag:'🇨🇱',rank:33},{name:'Uzbekistan',flag:'🇺🇿',rank:61}]},{letter:'J',teams:[{name:'France',flag:'🇫🇷',rank:4},{name:'Portugal',flag:'🇵🇹',rank:6},{name:'Nigeria',flag:'🇳🇬',rank:32},{name:'Cape Verde',flag:'🇨🇻',rank:79}]},{letter:'K',teams:[{name:'England',flag:'🇬🇧',rank:5},{name:'Senegal',flag:'🇸🇳',rank:18},{name:'Venezuela',flag:'🇻🇪',rank:47},{name:'Cameroon',flag:'🇨🇲',rank:43}]},{letter:'L',teams:[{name:'Croatia',flag:'🇭🇷',rank:10},{name:'Uruguay',flag:'🇺🇾',rank:12},{name:'Ghana',flag:'🇬🇭',rank:56},{name:'Panama',flag:'🇵🇦',rank:72}]}];
 
 const GM=[
 // Jun 11
@@ -482,7 +482,7 @@ const GM=[
 {id:'g20',date:'Jun 17',home:'Austria',hf:'🇦🇹',hr:31,away:'Jordan',af:'🇯🇴',ar:67,venue:'Arlington',g:'J',pa:0,pb:1},
 // Jun 17
 {id:'g21',date:'Jun 17',home:'Portugal',hf:'🇵🇹',hr:6,away:'DR Congo',af:'🇨🇩',ar:59,venue:'Boston',g:'J',pa:3,pb:0},
-{id:'g22',date:'Jun 17',home:'England',hf:'🏴󠁧󠁢󠁥󠁮󠁧󠁿',hr:5,away:'Croatia',af:'🇭🇷',ar:10,venue:'Arlington',g:'L',pa:2,pb:0},
+{id:'g22',date:'Jun 17',home:'England',hf:'🇬🇧',hr:5,away:'Croatia',af:'🇭🇷',ar:10,venue:'Arlington',g:'L',pa:2,pb:0},
 {id:'g23',date:'Jun 17',home:'Ghana',hf:'🇬🇭',hr:56,away:'Panama',af:'🇵🇦',ar:72,venue:'New York',g:'L',pa:2,pb:0},
 {id:'g24',date:'Jun 17',home:'Colombia',hf:'🇨🇴',hr:11,away:'Uzbekistan',af:'🇺🇿',ar:61,venue:'Miami',g:'J',pa:2,pb:1},
 // Jun 18
@@ -512,7 +512,7 @@ const GM=[
 {id:'g44',date:'Jun 22',home:'Jordan',hf:'🇯🇴',hr:67,away:'Algeria',af:'🇩🇿',ar:29,venue:'Houston',g:'J',pa:1,pb:1},
 // Jun 23
 {id:'g45',date:'Jun 23',home:'Portugal',hf:'🇵🇹',hr:6,away:'Uzbekistan',af:'🇺🇿',ar:61,venue:'Arlington',g:'J',pa:2,pb:0},
-{id:'g46',date:'Jun 23',home:'England',hf:'🏴󠁧󠁢󠁥󠁮󠁧󠁿',hr:5,away:'Ghana',af:'🇬🇭',ar:56,venue:'Miami',g:'L',pa:3,pb:0},
+{id:'g46',date:'Jun 23',home:'England',hf:'🇬🇧',hr:5,away:'Ghana',af:'🇬🇭',ar:56,venue:'Miami',g:'L',pa:3,pb:0},
 {id:'g47',date:'Jun 23',home:'Panama',hf:'🇵🇦',hr:72,away:'Croatia',af:'🇭🇷',ar:10,venue:'New York',g:'L',pa:1,pb:2},
 {id:'g48',date:'Jun 23',home:'Colombia',hf:'🇨🇴',hr:11,away:'DR Congo',af:'🇨🇩',ar:59,venue:'Dallas',g:'J',pa:2,pb:1},
 // Jun 24
@@ -537,7 +537,7 @@ const GM=[
 {id:'g65',date:'Jun 26',home:'Egypt',hf:'🇪🇬',hr:34,away:'Iran',af:'🇮🇷',ar:23,venue:'Arlington',g:'G',pa:0,pb:1},
 {id:'g66',date:'Jun 26',home:'New Zealand',hf:'🇳🇿',hr:102,away:'Belgium',af:'🇧🇪',ar:3,venue:'Seattle',g:'G',pa:0,pb:2},
 // Jun 27
-{id:'g67',date:'Jun 27',home:'Panama',hf:'🇵🇦',hr:72,away:'England',af:'🏴󠁧󠁢󠁥󠁮󠁧󠁿',ar:5,venue:'Miami',g:'L',pa:0,pb:3},
+{id:'g67',date:'Jun 27',home:'Panama',hf:'🇵🇦',hr:72,away:'England',af:'🇬🇧',ar:5,venue:'Miami',g:'L',pa:0,pb:3},
 {id:'g68',date:'Jun 27',home:'Croatia',hf:'🇭🇷',hr:10,away:'Ghana',af:'🇬🇭',ar:56,venue:'Philadelphia',g:'L',pa:2,pb:1},
 {id:'g69',date:'Jun 27',home:'Colombia',hf:'🇨🇴',hr:11,away:'Portugal',af:'🇵🇹',ar:6,venue:'Boston',g:'J',pa:1,pb:2},
 {id:'g70',date:'Jun 27',home:'DR Congo',hf:'🇨🇩',hr:59,away:'Uzbekistan',af:'🇺🇿',ar:61,venue:'Atlanta',g:'J',pa:1,pb:0},
@@ -586,7 +586,7 @@ const PREDS=[
 {rank:'1',label:'Tournament Winner',team:'France',flag:'🇫🇷',chance:18,tier:'pw',odds:'+450',reason:"Mbappé in his prime. Griezmann pulling strings. Theo Hernandez bombing forward. Depth to win every phase."},
 {rank:'2',label:'Runner Up',team:'Argentina',flag:'🇦🇷',chance:16,tier:'pf',odds:'+550',reason:"Defending champions return hungry. Lautaro, Enzo Fernández, and Julián Álvarez — an elite trio."},
 {rank:'3',label:'Semi-finalist',team:'Spain',flag:'🇪🇸',chance:14,tier:'ps',odds:'+600',reason:"FIFA's No.1 ranked team and Euro 2024 champions. Yamal, Pedri, and Morata at full power."},
-{rank:'4',label:'Semi-finalist',team:'England',flag:'🏴󠁧󠁢󠁥󠁮󠁧󠁿',chance:12,tier:'ps',odds:'+700',reason:"Bellingham leads the new generation. Saka, Foden and Gordon provide the firepower."},
+{rank:'4',label:'Semi-finalist',team:'England',flag:'🇬🇧',chance:12,tier:'ps',odds:'+700',reason:"Bellingham leads the new generation. Saka, Foden and Gordon provide the firepower."},
 {rank:'5',label:'Quarter-finalist',team:'Brazil',flag:'🇧🇷',chance:11,tier:'ps',odds:'+750',reason:"Rodrygo and Vinicius Jr. in lethal form. The Seleção want the Hex."},
 {rank:'6',label:'Quarter-finalist',team:'Germany',flag:'🇩🇪',chance:10,tier:'ps',odds:'+900',reason:"Reborn under their new setup. Sané and Gnabry terrorize defences."},
 {rank:'7',label:'Dark Horse',team:'Portugal',flag:'🇵🇹',chance:9,tier:'ps',odds:'+1000',reason:"Ronaldo's last dance. Bruno Fernandes as the creative engine. Rafael Leão on the flanks."},
